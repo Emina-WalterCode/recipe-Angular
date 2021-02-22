@@ -1,6 +1,14 @@
 <form class="ui form" [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
-  <button type="submit" class="ui button primary" [disabled]="!recipeForm.valid">Save</button>
-  <button type="button" class="ui button primary" (click)="onCancel()">Cancel</button>
+  <button
+    type="submit"
+    class="ui button primary"
+    [disabled]="!recipeForm.valid"
+  >
+    Save
+  </button>
+  <button type="button" class="ui button primary" (click)="onCancel()">
+    Cancel
+  </button>
 
   <div class="field">
     <label for="name">Name</label>
@@ -9,7 +17,7 @@
 
   <div class="field">
     <label for="imagePath">Image URL</label>
-    <input type="text" id="imagePath" formControlName="imagePath" #imagePath/>
+    <input type="text" id="imagePath" formControlName="imagePath" #imagePath />
   </div>
   <img [src]="imagePath.value" alt="" class="ui image" />
 
@@ -27,20 +35,28 @@
     <div
       class="row"
       *ngFor="
-        let ingredientCtrl of recipeForm.get('ingredients').controls;
+        let ingredientCtrl of recipeForm.get('ingredients')['controls'];
         let i = index
       "
       [formGroupName]="i"
     >
       <div class="ten wide column">
-        <input type="text" formControlName="name"/>
+        <input type="text" formControlName="name" />
       </div>
-      <div class="four wide column"  >
+      <div class="four wide column">
         <input type="number" formControlName="amount" />
       </div>
-      <button class="ui secondary button" type="button" (click)="onDeleteIngredient(i)">X</button>
+      <button
+        class="ui secondary button"
+        type="button"
+        (click)="onDeleteIngredient(i)"
+      >
+        X
+      </button>
     </div>
-    <hr>
-    <button class="ui button primary" type="button" (click)="onAddIngredient()">Add Ingredient</button>
+    <hr />
+    <button class="ui button primary" type="button" (click)="onAddIngredient()">
+      Add Ingredient
+    </button>
   </div>
 </form>
