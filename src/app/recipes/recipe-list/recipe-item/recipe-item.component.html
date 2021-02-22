@@ -1,0 +1,15 @@
+<a style="cursor: pointer" [routerLink]="[index]" routerLinkActive="active">
+  <div class="ui cards">
+    <div class="card">
+      <div class="content">
+        <img
+          [src]="recipe.imagePath"
+          alt="recipe image"
+          class="right floated ui image"
+        />
+        <div class="header">{{ recipe.name }}</div>
+        <div class="description">{{ recipe.description }}</div>
+      </div>
+    </div>
+  </div>
+</a>

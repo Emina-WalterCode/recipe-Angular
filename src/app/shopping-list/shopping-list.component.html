@@ -1,0 +1,13 @@
+<app-shopping-edit></app-shopping-edit>
+<hr />
+<div class="ui segment">
+  <div class="ui relaxed divided list">
+    <div class="item" *ngFor="let ingredient of ingredients; let i = index" (click)="onEditItem(i)">
+      <div class="content">
+        <div class="header" style="cursor: pointer">
+          {{ ingredient.name }} ( {{ ingredient.amount }} )
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

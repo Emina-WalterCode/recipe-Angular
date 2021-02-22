@@ -1,0 +1,36 @@
+<div class="ui secondary pointing menu">
+  <a class="item">Recipe Book</a>
+  <a
+    class="item"
+    routerLink="/recipes"
+    routerLinkActive="active"
+    *ngIf="isAuthenticated"
+  >
+    Recipes
+  </a>
+  <a
+    class="item"
+    routerLink="/auth"
+    routerLinkActive="active"
+    *ngIf="!isAuthenticated"
+  >
+    Authenticate</a
+  >
+  <a class="item" routerLink="/shopping-list" routerLinkActive="active"
+    >Shopping List</a
+  >
+  <div class="right menu">
+    <a class="item" *ngIf="isAuthenticated" (click)="onLogout()">Logout</a>
+    <div class="ui simple dropdown item" appDropdown *ngIf="isAuthenticated">
+      Manage <i class="dropdown icon"></i>
+      <div class="menu">
+        <a class="item" style="cursor: pointer" (click)="onSaveData()"
+          >Save Data</a
+        >
+        <a class="item" style="cursor: pointer" (click)="onFetchData()"
+          >Fetch Data</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
