@@ -5,6 +5,7 @@ import { BehaviorSubject, Subject, throwError } from "rxjs";
 import { registerLocaleData } from "@angular/common";
 import { readPatchedData } from "@angular/core/src/render3/util";
 import { Router } from "@angular/router";
+import { environment } from "../../environments/environment";
 
 export interface AuthResponseData {
   kind: string;
@@ -35,7 +36,8 @@ export class AuthService {
   signup(email: string, password: string) {
     return this.http
       .post<AuthResponseData>(
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDpewkceOxIwx9R_M2l9WgIrirRKmMkqvI",
+        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" +
+          environment.firebaseAPIKey,
         {
           email: email,
           password: password,
@@ -58,7 +60,8 @@ export class AuthService {
   login(email: string, password: string) {
     return this.http
       .post<AuthResponseData>(
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDpewkceOxIwx9R_M2l9WgIrirRKmMkqvI",
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" +
+          environment.firebaseAPIKey,
         {
           email: email,
           password: password,
